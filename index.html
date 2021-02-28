@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Survival | video game</title>
+   <meta name="Description" content="Land on an island and survive." />
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1eA9SZZQ6b4PaPyoDTlaYyXys9emrPhaH' type='image/png'/ >
+<style>
+#myVideo {
+width: 100%;
+}
+#controls {
+width: 10%;
+height: 50px;
+border: none;
+font-size: 20px;
+background: transparent;
+cursor: pointer;
+position: absolute;
+top: 50px;
+left: 0px;
+}
+#controls:hover {
+background: lightgreen;
+}
+#character {
+position: absolute;
+top: 50%;
+left: 40%;
+z-index: 1;
+height: 50%;
+visibility: hidden;
+}
+#vidWindow {
+width: 80%;
+position: absolute;
+top: 10px;
+left: 10%;
+}
+#jump {
+width: 10%;
+height: 50px;
+border: none;
+font-size: 20px;
+background: transparent;
+cursor: pointer;
+position: absolute;
+top: 100px;
+left: 0px;
+}
+#jump:hover {
+background: lightgreen;
+}
+#toLeft {
+width: 10%;
+height: 50px;
+font-size: 20px;
+border: none;
+background: transparent;
+cursor: pointer;
+position: absolute;
+top: 150px;
+left: 0px;
+}
+#toLeft:hover {
+background: lightgreen;
+}
+#toCenter {
+width: 10%;
+height: 50px;
+font-size: 20px;
+border: none;
+background: transparent;
+cursor: pointer;
+position: absolute;
+top: 200px;
+left: 0px;
+}
+#toCenter:hover {
+background: lightgreen;
+}
+#toRight {
+width: 10%;
+height: 50px;
+font-size: 20px;
+border: none;
+background: transparent;
+cursor: pointer;
+position: absolute;
+top: 250px;
+left: 0px;
+}
+#toRight:hover {
+background: lightgreen;
+}
+#boost {
+width: 10%;
+height: 50px;
+font-size: 20px;
+border: none;
+background: transparent;
+cursor: pointer;
+position: absolute;
+top: 300px;
+left: 0px;
+}
+#boost:hover {
+background: lightgreen;
+}
+</style>
+</head>
+<body onload="setTimeout(startGame, 12000); setTimeout(showCharacter, 12000)">
+<div id="window">
+<div id="vidWindow">
+<video  muted id="myVideo" autoplay>
+  <source src="https://drive.google.com/uc?authuser=0&id=1pmInkfw6CRp8Br-ZiwSvvmY9npDZyo_6&export=download" type="video/mp4">
+  It looks like this game is unavailable.
+</video>
+<img src="https://drive.google.com/thumbnail?id=1eA9SZZQ6b4PaPyoDTlaYyXys9emrPhaH" id="character">
+</div>
+<button id="controls" onclick="myFunction()">Run</button>
+<button id="jump" onclick="setTimeout(gravity, 800); jump();">Jump</button>
+<button class="side" id="toLeft" onclick="left()">Left</button>
+<button class="side" id="toCenter" onclick="center()">Center</button>
+<button class="side" id="toRight" onclick="right()">Right</button>
+<button class="side" id="boost" onclick="setTimeout(gravity, 1200); boost()">Boost</button>
+</div>
+
+<script>
+function startGame() {
+var vid  = document.getElementById("myVideo");
+document.getElementById("myVideo").src = "https://drive.google.com/uc?authuser=0&id=1ukIrZxLY5wFl0ugk8ugn7OMp4oWyQn0f&export=download";
+vid.loop = true;
+vid.autoplay = false;
+}
+function showCharacter() {
+document.getElementById("character").style.visibility = "visible";
+}
+</script>
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("controls");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Stop";
+  } else {
+    video.pause();
+    btn.innerHTML = "Run";
+  }
+}
+function gravity() {
+document.getElementById("character").style.top = "50%";
+}
+function jump() {
+document.getElementById("character").style.top = "40%";
+}
+function left() {
+document.getElementById("character").style.left = "30%";
+}
+function center() {
+document.getElementById("character").style.left = "40%";
+}
+function right() {
+document.getElementById("character").style.left = "50%";
+}
+function boost() {
+document.getElementById("character").style.top = "10%";
+}
+</script>
+</body>
+</html>
