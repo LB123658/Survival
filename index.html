@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Survival | video game</title>
+<title id="theTitle">Survival | video game</title>
    <meta name="Description" content="Land on an island and survive." />
 <link rel='icon' href='https://drive.google.com/thumbnail?id=1eA9SZZQ6b4PaPyoDTlaYyXys9emrPhaH' type='image/png'/ >
 <style>
@@ -108,9 +107,157 @@ left: 0px;
 #boost:hover {
 background: lightgreen;
 }
+#lobby {
+visibility: visible;
+background: lightgreen;
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 100%;
+visibility: hidden;
+}
+#mainTitle {
+position: absolute;
+top: 5px;
+left: 20%;
+width: 60%;
+cursor: default;
+}
+#lobbyCharacter {
+position: absolute;
+top: 45%;
+left: 40%;
+height: 50%;
+}
+#window {
+visibility: hidden;
+}
+#playGame {
+width: 200px;
+height: 50px;
+border: none;
+background: yellow;
+font-size: 25px;
+position: absolute;
+bottom: 20px;
+left: 40%;
+}
+#playGame:hover {
+background: orange;
+cursor: pointer;
+}
+
+.part {
+width: 10%;
+height: 30px;
+border: none;
+background: grey;
+}
+#a {
+position: absolute;
+top: 20px;
+left: 0px;
+border-radius: 15px 0px 0px 15px;
+}
+#b {
+position: absolute;
+top: 20px;
+left: 10%;
+}
+#c {
+position: absolute;
+top: 20px;
+left: 20%;
+}
+#d {
+position: absolute;
+top: 20px;
+left: 30%;
+}
+#e {
+position: absolute;
+top: 20px;
+left: 40%;
+}
+#f {
+position: absolute;
+top: 20px;
+left: 50%;
+}
+#g {
+position: absolute;
+top: 20px;
+left: 60%;
+}
+#h{
+position: absolute;
+top: 20px;
+left: 70%;
+}
+#i{
+position: absolute;
+top: 20px;
+left: 80%;
+}
+#j{
+position: absolute;
+top: 20px;
+left: 90%;
+border-radius: 0px 15px 15px 0px;
+}
+#loadPercentage {
+color: lightgrey;
+text-align: center;
+font-size: 20px;
+font-family: futura;
+position: absolute;
+top: 50px;
+left: 40%;
+visibility: visible;
+}
+#loading {
+position: absolute;
+top: 300px;
+left: 20%;
+width: 60%;
+}
+#survivalLogo {
+position: absolute;
+width: 40%;
+top: 50px;
+left: 30%;
+}
 </style>
 </head>
-<body onload="setTimeout(startGame, 12000); setTimeout(showCharacter, 12000)">
+<body onload="setTimeout(loadA, 1000); setTimeout(loadB, 1500); setTimeout(loadC, 2000); setTimeout(loadD, 2500); setTimeout(loadE, 3000); setTimeout(loadF, 3500); setTimeout(loadG, 4000); setTimeout(loadH, 4500); setTimeout(loadI, 5000); setTimeout(loadJ, 5500); setTimeout(showLobby, 6000); loadName()">
+
+<img id="survivalLogo" src="https://drive.google.com/thumbnail?id=1WETnqhzKDicdVTI9hN_CNp4_yJfjH_6M">
+
+<div id="loading">
+<button class="part" id="a"></button>
+<button class="part" id="b"></button>
+<button class="part" id="c"></button>
+<button class="part" id="d"></button>
+<button class="part" id="e"></button>
+<button class="part" id="f"></button>
+<button class="part" id="g"></button>
+<button class="part" id="h"></button>
+<button class="part" id="i"></button>
+<button class="part" id="j"></button>
+<p id="loadPercentage">Loading 0%</button>
+</div>
+
+
+
+
+<div id="lobby">
+<img id="mainTitle" src="https://drive.google.com/thumbnail?id=1WETnqhzKDicdVTI9hN_CNp4_yJfjH_6M">
+<img src="https://drive.google.com/thumbnail?id=1eA9SZZQ6b4PaPyoDTlaYyXys9emrPhaH" id="lobbyCharacter">
+<button id="playGame" onclick="setTimeout(startGame, 12000); setTimeout(showCharacter, 12000); showGame()">Play</button>
+</div>
+
+
 <div id="window">
 <div id="vidWindow">
 <video  muted id="myVideo" autoplay>
@@ -168,6 +315,63 @@ document.getElementById("character").style.left = "50%";
 }
 function boost() {
 document.getElementById("character").style.top = "10%";
+}
+function showGame() {
+document.getElementById("window").style.visibility = "visible";
+document.getElementById("lobby").style.visibility = "hidden";
+document.getElementById("loading").style.visibility = "hidden";
+document.getElementById("theTitle").innerHTML = "Survival | playing now...";
+}
+
+function loadA() {
+document.getElementById("a").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 10%";
+}
+function loadB() {
+document.getElementById("b").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 20%";
+}
+function loadC() {
+document.getElementById("c").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 30%";
+}
+function loadD() {
+document.getElementById("d").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 40%";
+}
+function loadE() {
+document.getElementById("e").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 50%";
+}
+function loadF() {
+document.getElementById("f").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 60%";
+}
+function loadG() {
+document.getElementById("g").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 70%";
+}
+function loadH() {
+document.getElementById("h").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 80%";
+}
+function loadI() {
+document.getElementById("i").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 90%";
+}
+function loadJ() {
+document.getElementById("j").style.background = "#63bd04";
+document.getElementById("loadPercentage").innerHTML = "Loading 100%";
+}
+function showLobby() {
+document.getElementById("lobby").style.visibility = "visible";
+document.getElementById("window").style.visibility = "hidden";
+document.getElementById("loading").style.visibility = "hidden";
+document.getElementById("survivalLogo").style.visibility = "hidden";
+document.getElementById("theTitle").innerHTML = "Survival | In lobby";
+}
+function loadName() {
+document.getElementById("theTitle").innerHTML = "Survival | loading...";
 }
 </script>
 </body>
