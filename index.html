@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title id="theTitle">Survival | video game</title>
-   <meta name="Description" content="Land on an island and survive. New features including driving, explosives, and bananas." />
-<link rel='icon' href='https://drive.google.com/thumbnail?id=1eA9SZZQ6b4PaPyoDTlaYyXys9emrPhaH' type='image/png'/ >
+   <meta name="Description" content="Land on an island and survive." />
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1w4OulRunIMT7IHZsH3rU2KdqWM-FK6fB' type='image/png'/ >
 <style>
 #myVideo {
 width: 100%;
@@ -243,6 +244,42 @@ cursor: pointer;
 .side {
 visibility: hidden;
 }
+#banana {
+z-index: 2;
+position: absolute;
+top: 50%;
+left: 20%;
+width: 70px;
+cursor: pointer;
+visibility: hidden;
+}
+.slot {
+width: 100px;
+height: 100px;
+background: transparent;
+border: 1px solid grey;
+}
+#slotA {
+position: absolute;
+left: 100px;
+bottom: 0px;
+}
+#slotB {
+position: absolute;
+left: 200px;
+bottom: 0px;
+}
+#slotC {
+position: absolute;
+left: 300px;
+bottom: 0px;
+}
+#bananaSlot {
+z-index: 2;
+width: 100%;
+cursor: pointer;
+visibility: hidden;
+}
 </style>
 </head>
 <body onload="setTimeout(loadA, 1000); setTimeout(loadB, 1500); setTimeout(loadC, 2000); setTimeout(loadD, 2500); setTimeout(loadE, 3000); setTimeout(loadF, 3500); setTimeout(loadG, 4000); setTimeout(loadH, 4500); setTimeout(loadI, 5000); setTimeout(loadJ, 5500); setTimeout(showLobby, 6000); loadName()">
@@ -280,7 +317,9 @@ visibility: hidden;
   It looks like this game is unavailable.
 </video>
 <img src="https://drive.google.com/thumbnail?id=1eA9SZZQ6b4PaPyoDTlaYyXys9emrPhaH" id="character">
-<button id="important" onclick="setTimeout(startGame, 12000); setTimeout(showCharacter, 12000); myFunction(); hideImportant(); setTimeout(showController, 12000);">Start!</button>
+<button id="important" onclick="setTimeout(startGame, 12000); setTimeout(showCharacter, 12000); myFunction(); hideImportant(); setTimeout(showController, 12000); setTimeout(showBanana, 60000); setTimeout(hideBanana, 65000); setTimeout(showBomb, 80000); setTimeout(hideBomb, 85000); setTimeout(showCar, 120000); setTimeout(hideCar, 125000);">Start!</button>
+
+<img id="banana" src="https://drive.google.com/uc?authuser=0&id=1GLTvTpLrSvmKgj8j6RENRxsaGWdlInuo&export=download" onclick="grabBanana()">
 </div>
 <button id="controls" onclick="myFunction()" class="side">Run</button>
 <button id="jump" onclick="setTimeout(gravity, 800); jump();" class="side">Jump</button>
@@ -288,6 +327,12 @@ visibility: hidden;
 <button class="side" id="toCenter" onclick="center()">Center</button>
 <button class="side" id="toRight" onclick="right()">Right</button>
 <button class="side" id="boost" onclick="setTimeout(gravity, 1200); boost()">Boost</button>
+
+<div id="slotA" class="slot"><img id="bananaSlot" src="https://drive.google.com/uc?authuser=0&id=1GLTvTpLrSvmKgj8j6RENRxsaGWdlInuo&export=download"></div>
+<div id="slotB" class="slot"></div>
+<div id="slotC" class="slot"></div>
+
+
 </div>
 
 <script>
@@ -400,6 +445,32 @@ document.getElementById("toLeft").style.visibility = "visible";
 document.getElementById("toCenter").style.visibility = "visible";
 document.getElementById("toRight").style.visibility = "visible";
 document.getElementById("boost").style.visibility = "visible";
+document.getElementById("slotA").style.visibility = "visible";
+document.getElementById("slotB").style.visibility = "visible";
+document.getElementById("slotC").style.visibility = "visible";
+}
+function showBanana() {
+document.getElementById("banana").style.visibility = "visible";
+}
+function showBomb() {
+document.getElementById("bomb").style.visibility = "visible";
+}
+function showCar() {
+document.getElementById("bomb").style.visibility = "visible";
+}
+function hideBanana() {
+document.getElementById("banana").style.visibility = "hidden";
+}
+function hideBomb() {
+document.getElementById("bomb").style.visibility = "hidden";
+}
+function hideCar() {
+document.getElementById("bomb").style.visibility = "hidden";
+}
+function grabBanana() {
+document.getElementById("slotA").style.background = "#ffeb54";
+document.getElementById("banana").style.visibility = "hidden";
+document.getElementById("bananaSlot").style.visibility = "visible";
 }
 </script>
 </body>
