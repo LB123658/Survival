@@ -260,7 +260,7 @@ left: 30%;
 
 <div id="window">
 <div id="vidWindow">
-<video  muted id="myVideo" autoplay>
+<video  muted id="myVideo">
   <source src="https://drive.google.com/uc?authuser=0&id=1pmInkfw6CRp8Br-ZiwSvvmY9npDZyo_6&export=download" type="video/mp4">
   It looks like this game is unavailable.
 </video>
@@ -372,6 +372,7 @@ document.getElementById("theTitle").innerHTML = "Survival | In lobby";
 }
 function loadName() {
 document.getElementById("theTitle").innerHTML = "Survival | loading...";
+document.getElementById("loading").style.visibility = "hidden";
 }
 </script>
 </body>
