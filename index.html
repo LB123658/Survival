@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title id="theTitle">Survival | video game</title>
-   <meta name="Description" content="Land on an island and survive." />
-<link rel='icon' href='https://drive.google.com/thumbnail?id=1eA9SZZQ6b4PaPyoDTlaYyXys9emrPhaH' type='image/png'/ >
+   <meta name="Description" content="Land on an island and survive. New features including driving, explosives, and bananas." />
+<link rel='icon' href='https://drive.google.com/thumbnail?id=1w4OulRunIMT7IHZsH3rU2KdqWM-FK6fB' type='image/png'/ >
 <style>
 #myVideo {
 width: 100%;
@@ -229,11 +228,26 @@ width: 40%;
 top: 50px;
 left: 30%;
 }
+#important {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 100%;
+border: none;
+background: lightgreen;
+font-size: 60px;
+z-index: 2;
+cursor: pointer;
+}
+.side {
+visibility: hidden;
+}
 </style>
 </head>
 <body onload="setTimeout(loadA, 1000); setTimeout(loadB, 1500); setTimeout(loadC, 2000); setTimeout(loadD, 2500); setTimeout(loadE, 3000); setTimeout(loadF, 3500); setTimeout(loadG, 4000); setTimeout(loadH, 4500); setTimeout(loadI, 5000); setTimeout(loadJ, 5500); setTimeout(showLobby, 6000); loadName()">
 
-<img id="survivalLogo" src="https://drive.google.com/thumbnail?id=1WETnqhzKDicdVTI9hN_CNp4_yJfjH_6M">
+<img id="survivalLogo" src="https://drive.google.com/uc?authuser=0&id=1WETnqhzKDicdVTI9hN_CNp4_yJfjH_6M&export=download">
 
 <div id="loading">
 <button class="part" id="a"></button>
@@ -253,9 +267,9 @@ left: 30%;
 
 
 <div id="lobby">
-<img id="mainTitle" src="https://drive.google.com/thumbnail?id=1WETnqhzKDicdVTI9hN_CNp4_yJfjH_6M">
+<img id="mainTitle" src="https://drive.google.com/uc?authuser=0&id=1WETnqhzKDicdVTI9hN_CNp4_yJfjH_6M&export=download">
 <img src="https://drive.google.com/thumbnail?id=1eA9SZZQ6b4PaPyoDTlaYyXys9emrPhaH" id="lobbyCharacter">
-<button id="playGame" onclick="setTimeout(startGame, 12000); setTimeout(showCharacter, 12000); showGame()">Play</button>
+<button id="playGame" onclick=" showGame()">Play</button>
 </div>
 
 
@@ -266,9 +280,10 @@ left: 30%;
   It looks like this game is unavailable.
 </video>
 <img src="https://drive.google.com/thumbnail?id=1eA9SZZQ6b4PaPyoDTlaYyXys9emrPhaH" id="character">
+<button id="important" onclick="setTimeout(startGame, 12000); setTimeout(showCharacter, 12000); myFunction(); hideImportant(); setTimeout(showController, 12000);">Start!</button>
 </div>
-<button id="controls" onclick="myFunction()">Run</button>
-<button id="jump" onclick="setTimeout(gravity, 800); jump();">Jump</button>
+<button id="controls" onclick="myFunction()" class="side">Run</button>
+<button id="jump" onclick="setTimeout(gravity, 800); jump();" class="side">Jump</button>
 <button class="side" id="toLeft" onclick="left()">Left</button>
 <button class="side" id="toCenter" onclick="center()">Center</button>
 <button class="side" id="toRight" onclick="right()">Right</button>
@@ -374,6 +389,17 @@ document.getElementById("theTitle").innerHTML = "Survival | In lobby";
 }
 function loadName() {
 document.getElementById("theTitle").innerHTML = "Survival | loading...";
+}
+function hideImportant() {
+document.getElementById("important").style.visibility = "hidden";
+}
+function showController() {
+document.getElementById("controls").style.visibility = "visible";
+document.getElementById("jump").style.visibility = "visible";
+document.getElementById("toLeft").style.visibility = "visible";
+document.getElementById("toCenter").style.visibility = "visible";
+document.getElementById("toRight").style.visibility = "visible";
+document.getElementById("boost").style.visibility = "visible";
 }
 </script>
 </body>
