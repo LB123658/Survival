@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -280,6 +279,51 @@ width: 100%;
 cursor: pointer;
 visibility: hidden;
 }
+#bombSlot {
+z-index: 2;
+width: 100%;
+cursor: pointer;
+visibility: hidden;
+}
+#bomb {
+z-index: 2;
+position: absolute;
+top: 30%;
+left: 70%;
+width: 80px;
+cursor: pointer;
+visibility: hidden;
+}
+#healthA {
+position: absolute;
+top: 50px;
+right: 0px;
+width: 10%;
+height: 100px;
+background: lightgrey;
+border: none;
+visibility: hidden;
+}
+#healthB {
+position: absolute;
+top: 150px;
+right: 0px;
+width: 10%;
+height: 100px;
+background: lightgreen;
+border: none;
+visibility: hidden;
+}
+#healthC {
+position: absolute;
+top: 250px;
+right: 0px;
+width: 10%;
+height: 100px;
+background: lightgreen;
+border: none;
+visibility: hidden;
+}
 </style>
 </head>
 <body onload="setTimeout(loadA, 1000); setTimeout(loadB, 1500); setTimeout(loadC, 2000); setTimeout(loadD, 2500); setTimeout(loadE, 3000); setTimeout(loadF, 3500); setTimeout(loadG, 4000); setTimeout(loadH, 4500); setTimeout(loadI, 5000); setTimeout(loadJ, 5500); setTimeout(showLobby, 6000); loadName()">
@@ -320,6 +364,8 @@ visibility: hidden;
 <button id="important" onclick="setTimeout(startGame, 12000); setTimeout(showCharacter, 12000); myFunction(); hideImportant(); setTimeout(showController, 12000); setTimeout(showBanana, 60000); setTimeout(hideBanana, 65000); setTimeout(showBomb, 80000); setTimeout(hideBomb, 85000); setTimeout(showCar, 120000); setTimeout(hideCar, 125000);">Start!</button>
 
 <img id="banana" src="https://drive.google.com/uc?authuser=0&id=1GLTvTpLrSvmKgj8j6RENRxsaGWdlInuo&export=download" onclick="grabBanana()">
+
+<img id="bomb" src="https://drive.google.com/uc?authuser=0&id=1FL5zcoIwzfJjG9Se0UBSTsB88L2Oaig1&export=download" onclick="grabBomb()">
 </div>
 <button id="controls" onclick="myFunction()" class="side">Run</button>
 <button id="jump" onclick="setTimeout(gravity, 800); jump();" class="side">Jump</button>
@@ -328,10 +374,13 @@ visibility: hidden;
 <button class="side" id="toRight" onclick="right()">Right</button>
 <button class="side" id="boost" onclick="setTimeout(gravity, 1200); boost()">Boost</button>
 
-<div id="slotA" class="slot"><img id="bananaSlot" src="https://drive.google.com/uc?authuser=0&id=1GLTvTpLrSvmKgj8j6RENRxsaGWdlInuo&export=download"></div>
-<div id="slotB" class="slot"></div>
+<div id="slotA" class="slot"><img id="bananaSlot" src="https://drive.google.com/uc?authuser=0&id=1GLTvTpLrSvmKgj8j6RENRxsaGWdlInuo&export=download" onclick="useBanana()"></div>
+<div id="slotB" class="slot"><img id="bombSlot" src="https://drive.google.com/uc?authuser=0&id=1FL5zcoIwzfJjG9Se0UBSTsB88L2Oaig1&export=download" onclick="useBomb()"></div>
 <div id="slotC" class="slot"></div>
 
+<button id="healthA" title="<66% health"></button>
+<button id="healthB" title="<33% health"></button>
+<button id="healthC" title=">33% health"></button>
 
 </div>
 
@@ -448,6 +497,9 @@ document.getElementById("boost").style.visibility = "visible";
 document.getElementById("slotA").style.visibility = "visible";
 document.getElementById("slotB").style.visibility = "visible";
 document.getElementById("slotC").style.visibility = "visible";
+document.getElementById("healthA").style.visibility = "visible";
+document.getElementById("healthB").style.visibility = "visible";
+document.getElementById("healthC").style.visibility = "visible";
 }
 function showBanana() {
 document.getElementById("banana").style.visibility = "visible";
@@ -471,6 +523,24 @@ function grabBanana() {
 document.getElementById("slotA").style.background = "#ffeb54";
 document.getElementById("banana").style.visibility = "hidden";
 document.getElementById("bananaSlot").style.visibility = "visible";
+}
+function grabBomb() {
+document.getElementById("slotB").style.background = "lightgrey";
+document.getElementById("bomb").style.visibility = "hidden";
+document.getElementById("bombSlot").style.visibility = "visible";
+}
+function useBanana() {
+document.getElementById("healthA").style.background = "lightgreen";
+document.getElementById("healthB").style.background = "lightgreen";
+document.getElementById("healthC").style.background = "lightgreen";
+document.getElementById("theTitle").innerHTML = "Increased health...";
+}
+function useBomb() {
+document.getElementById("healthA").style.background = "lightgrey";
+document.getElementById("healthB").style.background = "lightgrey";
+document.getElementById("healthC").style.background = "red";
+document.getElementById("theTitle").innerHTML = "Almost died from dynamite...";
+alert("YOU ARE AT LOW HEALTH!");
 }
 </script>
 </body>
