@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -297,18 +298,19 @@ visibility: hidden;
 #healthA {
 position: absolute;
 top: 50px;
-right: 0px;
-width: 10%;
+right: 4%;
+width: 5%;
 height: 100px;
 background: lightgrey;
 border: none;
 visibility: hidden;
+border-radius: 40% 40% 0% 0%;
 }
 #healthB {
 position: absolute;
 top: 150px;
-right: 0px;
-width: 10%;
+right: 4%;
+width: 5%;
 height: 100px;
 background: lightgreen;
 border: none;
@@ -317,12 +319,36 @@ visibility: hidden;
 #healthC {
 position: absolute;
 top: 250px;
-right: 0px;
-width: 10%;
+right: 4%;
+width: 5%;
 height: 100px;
 background: lightgreen;
 border: none;
 visibility: hidden;
+border-radius: 0% 0% 40% 40%;
+}
+#death {
+position: absolute;
+top: 0px;
+left: 0px;
+height: 100%;
+width: 100%;
+background: grey;
+visibility: hidden;
+}
+#gameOver {
+position: absolute;
+top: 50%;
+left: 20%;
+width: 60%;
+height: 100px;
+background: red;
+border: none;
+border-radius: 5px;
+color: white;
+cursor: pointer;
+font-size: 40px;
+z-index: 3;
 }
 </style>
 </head>
@@ -375,7 +401,7 @@ visibility: hidden;
 <button class="side" id="boost" onclick="setTimeout(gravity, 1200); boost()">Boost</button>
 
 <div id="slotA" class="slot"><img id="bananaSlot" src="https://drive.google.com/uc?authuser=0&id=1GLTvTpLrSvmKgj8j6RENRxsaGWdlInuo&export=download" onclick="useBanana()"></div>
-<div id="slotB" class="slot"><img id="bombSlot" src="https://drive.google.com/uc?authuser=0&id=1FL5zcoIwzfJjG9Se0UBSTsB88L2Oaig1&export=download" onclick="useBomb()"></div>
+<div id="slotB" class="slot"><img id="bombSlot" src="https://drive.google.com/uc?authuser=0&id=1FL5zcoIwzfJjG9Se0UBSTsB88L2Oaig1&export=download" onclick="useBomb(); setTimeout(lifeSpan, 1000)"></div>
 <div id="slotC" class="slot"></div>
 
 <button id="healthA" title="<66% health"></button>
@@ -384,6 +410,9 @@ visibility: hidden;
 
 </div>
 
+<div id="death">
+<button id="gameOver" onclick="reloadGame()">Game over | play again</button>
+</div>
 <script>
 function startGame() {
 var vid  = document.getElementById("myVideo");
@@ -432,6 +461,8 @@ document.getElementById("lobby").style.visibility = "hidden";
 document.getElementById("loading").style.visibility = "hidden";
 document.getElementById("theTitle").innerHTML = "Survival | playing now...";
 document.getElementById("loadPercentage").style.visibility = "hidden";
+document.getElementById("death").style.visibility = "hidden";
+document.getElementById("vidWindow").style.visibility = "visible";
 }
 
 function loadA() {
@@ -480,6 +511,20 @@ document.getElementById("window").style.visibility = "hidden";
 document.getElementById("loading").style.visibility = "hidden";
 document.getElementById("survivalLogo").style.visibility = "hidden";
 document.getElementById("theTitle").innerHTML = "Survival | In lobby";
+document.getElementById("death").style.visibility = "hidden";
+document.getElementById("vidWindow").style.visibility = "hidden";
+document.getElementById("controls").style.visibility = "hidden";
+document.getElementById("jump").style.visibility = "hidden";
+document.getElementById("toLeft").style.visibility = "hidden";
+document.getElementById("toCenter").style.visibility = "hidden";
+document.getElementById("toRight").style.visibility = "hidden";
+document.getElementById("boost").style.visibility = "hidden";
+document.getElementById("slotA").style.visibility = "hidden";
+document.getElementById("slotB").style.visibility = "hidden";
+document.getElementById("slotC").style.visibility = "hidden";
+document.getElementById("healthA").style.visibility = "hidden";
+document.getElementById("healthB").style.visibility = "hidden";
+document.getElementById("healthC").style.visibility = "hidden";
 }
 function loadName() {
 document.getElementById("theTitle").innerHTML = "Survival | loading...";
@@ -539,8 +584,26 @@ function useBomb() {
 document.getElementById("healthA").style.background = "lightgrey";
 document.getElementById("healthB").style.background = "lightgrey";
 document.getElementById("healthC").style.background = "red";
-document.getElementById("theTitle").innerHTML = "Almost died from dynamite...";
-alert("YOU ARE AT LOW HEALTH!");
+document.getElementById("theTitle").innerHTML = "Died from dynamite...";
+}
+function lifeSpan() {
+  var health = document.getElementById("healthC");
+  var window = document.getElementById("window");
+  var death = document.getElementById("death");
+  if (health.style.background = "red") {
+  window.style.visibility = "hidden";
+  death.style.visibility = "visible";
+  document.getElementById("character").style.visibility = "hidden";
+  document.getElementById("bomb").style.visibility = "hidden";
+  document.getElementById("bananaSlot").style.visibility = "hidden";
+  document.getElementById("bombSlot").style.visibility = "hidden";
+  } else {
+  window.style.visibility = "visible";
+  death.style.visibility = "hidden";
+  }
+}  
+function reloadGame() {
+location.reload();
 }
 </script>
 </body>
